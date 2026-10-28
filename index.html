@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PawLulus – Jasa Makalah, PPT, Poster & Komis</title>
+<meta name="description" content="PawLulus: jasa pembuatan makalah, essai, PPT, poster, dan komis (commission art) untuk mahasiswa dan pelajar.">
+<link rel="icon" href="assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#FF8A00; --orange-d:#E06A00; --yellow:#FFC93C; --cream:#FFF4E0; --cream2:#FFE8C2;
+  --black:#1A1410; --ink:#2B2118; --white:#fff; --muted:#6B5B4B;
+  --radius:22px; --shadow:0 12px 30px rgba(120,60,0,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:'Poppins',sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.brand{font-family:'Fredoka',sans-serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:min(1140px,92%);margin:auto}
+section{padding:84px 0}
+.sec-title{text-align:center;margin-bottom:46px}
+.sec-title .tag{display:inline-block;background:var(--black);color:var(--yellow);padding:6px 16px;border-radius:99px;font-size:.8rem;font-weight:600;letter-spacing:.5px}
+.sec-title h2{font-size:clamp(1.8rem,4vw,2.7rem);color:var(--black);margin:12px 0 8px}
+.sec-title p{color:var(--muted);max-width:620px;margin:auto}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--black);box-shadow:0 4px 18px rgba(0,0,0,.35)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:10px;font-size:1.5rem;font-weight:700;color:var(--yellow)}
+.brand img{width:48px;height:48px;border-radius:50%;border:2px solid var(--yellow);background:#fff}
+.brand span b{color:var(--orange)}
+nav ul{display:flex;gap:6px;list-style:none}
+nav a.link{color:#fff;padding:8px 13px;border-radius:99px;font-size:.88rem;font-weight:500;transition:.2s}
+nav a.link:hover,nav a.link.active{background:var(--orange);color:var(--black)}
+.nav-actions{display:flex;gap:8px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;font-family:inherit;font-weight:600;font-size:.95rem;padding:12px 24px;border-radius:99px;transition:.2s}
+.btn-primary{background:var(--orange);color:var(--black);box-shadow:0 8px 18px rgba(255,138,0,.4)}
+.btn-primary:hover{background:var(--yellow);transform:translateY(-2px)}
+.btn-dark{background:var(--black);color:var(--yellow)}
+.btn-dark:hover{background:#000;transform:translateY(-2px)}
+.btn-ghost{background:#fff;color:var(--black);border:2px solid var(--black)}
+.btn-ghost:hover{background:var(--black);color:var(--yellow)}
+.btn-wa{background:#1FA855;color:#fff}
+.btn-wa:hover{background:#178a45;transform:translateY(-2px)}
+.btn-sm{padding:8px 18px;font-size:.85rem}
+.burger{display:none;background:none;border:0;color:var(--yellow);font-size:1.8rem;cursor:pointer}
+
+/* HERO */
+#home{padding:130px 0 90px;background:linear-gradient(135deg,var(--orange) 0%,var(--yellow) 100%);position:relative;overflow:hidden}
+#home::before,#home::after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.2)}
+#home::before{width:520px;height:520px;right:-140px;top:-120px}
+#home::after{width:260px;height:260px;left:-90px;bottom:-90px}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
+.badge{display:inline-block;background:var(--black);color:var(--yellow);padding:8px 18px;border-radius:99px;font-weight:600;font-size:.85rem;margin-bottom:18px}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4rem);line-height:1.1;color:var(--black);margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--white);background:var(--black);padding:0 14px;border-radius:14px;display:inline-block;transform:rotate(-1.5deg)}
+.hero p{font-size:1.05rem;color:var(--black);max-width:520px;margin-bottom:26px;font-weight:500}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:26px;margin-top:34px;flex-wrap:wrap}
+.hero-stats div{background:rgba(26,20,16,.9);color:#fff;padding:12px 20px;border-radius:16px}
+.hero-stats b{display:block;font-family:'Fredoka';font-size:1.4rem;color:var(--yellow)}
+.hero-stats small{font-size:.78rem}
+.mascot-wrap{position:relative}
+.mascot-wrap img.mascot{border-radius:34px;box-shadow:0 24px 50px rgba(26,20,16,.35);border:6px solid #fff;animation:floaty 4s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+.welcome-bubble{position:absolute;top:-18px;left:-10px;background:#fff;color:var(--black);font-weight:700;padding:12px 18px;border-radius:20px 20px 20px 4px;box-shadow:var(--shadow);font-family:'Fredoka';font-size:1.05rem;animation:pop 2.4s ease-in-out infinite;z-index:3}
+.welcome-bubble .wave{display:inline-block;animation:wave 1.2s infinite;transform-origin:70% 70%}
+@keyframes wave{0%,100%{transform:rotate(0)}25%{transform:rotate(20deg)}75%{transform:rotate(-12deg)}}
+@keyframes pop{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.chip{position:absolute;background:#fff;color:var(--black);padding:9px 16px;border-radius:14px;font-weight:600;font-size:.82rem;box-shadow:var(--shadow);z-index:3}
+.chip.c1{right:-12px;top:30%}.chip.c2{left:-14px;bottom:22%}.chip.c3{right:10%;bottom:-14px}
+
+/* ABOUT */
+#about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:44px;align-items:center}
+.about-img{background:var(--cream);border-radius:var(--radius);padding:28px;text-align:center;border:3px dashed var(--orange)}
+.about-img img{width:min(280px,80%);margin:auto;border-radius:50%}
+.about-text h3{font-size:1.8rem;margin-bottom:10px;color:var(--black)}
+.about-text p{margin-bottom:14px;color:var(--muted)}
+.values{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+.values div{background:var(--cream);border-left:5px solid var(--orange);padding:14px 16px;border-radius:12px;font-size:.9rem}
+.values b{display:block;color:var(--black)}
+
+/* SERVICES */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.card{background:#fff;border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow);border-top:7px solid var(--orange);transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-8px)}
+.card .ico{font-size:2.6rem;background:var(--cream);width:70px;height:70px;border-radius:20px;display:grid;place-items:center;margin-bottom:14px}
+.card h3{color:var(--black);font-size:1.35rem;margin-bottom:6px}
+.card p{color:var(--muted);font-size:.9rem;flex:1}
+.price{margin:16px 0;font-family:'Fredoka';font-size:1.7rem;color:var(--orange-d);font-weight:700}
+.price small{font-size:.85rem;color:var(--muted);font-family:'Poppins';font-weight:500}
+.card ul{list-style:none;margin-bottom:18px;font-size:.88rem}
+.card li::before{content:"🐾 ";}
+.card.dark{background:var(--black);color:#fff;border-top-color:var(--yellow)}
+.card.dark h3{color:var(--yellow)}.card.dark p,.card.dark li{color:#e9dccb}.card.dark .price{color:var(--yellow)}.card.dark .price small{color:#cbbba6}
+.calc{background:var(--black);color:#fff;border-radius:var(--radius);padding:28px;margin-top:34px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;align-items:end}
+.calc h3{grid-column:1/-1;color:var(--yellow)}
+.calc label{font-size:.82rem;color:var(--yellow);font-weight:600}
+.calc input,.calc select{width:100%;padding:12px 14px;border-radius:12px;border:0;font-family:inherit;font-size:.95rem}
+.calc .res{background:var(--orange);color:var(--black);padding:12px 16px;border-radius:12px;font-weight:700;font-size:1.1rem;text-align:center}
+
+/* KOMIS */
+#komis{background:linear-gradient(180deg,var(--cream2),var(--cream))}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,320px));gap:26px;justify-content:center}
+.work{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.25s;cursor:zoom-in}
+.work:hover{transform:translateY(-8px) rotate(-1deg)}
+.work img{width:100%;aspect-ratio:3/4;object-fit:contain;background:#fff}
+.work div{padding:14px 18px;background:var(--black);color:var(--yellow);font-weight:600;font-size:.9rem}
+.komis-cta{text-align:center;margin-top:36px;background:var(--black);color:#fff;border-radius:var(--radius);padding:30px}
+.komis-cta h3{color:var(--yellow);margin-bottom:6px;font-size:1.5rem}
+.komis-cta p{margin-bottom:16px;color:#eadfce}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;place-items:center;z-index:300;cursor:zoom-out}
+.lightbox.show{display:grid}
+.lightbox img{max-height:90vh;border-radius:18px;background:#fff}
+
+/* ORDER */
+#order{background:var(--white)}
+.order-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:start}
+.panel{background:var(--cream);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow);border:2px solid var(--cream2)}
+.panel h3{font-size:1.4rem;color:var(--black);margin-bottom:16px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.84rem;font-weight:600;color:var(--black);margin-bottom:5px}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border-radius:12px;border:2px solid #E7D3B4;font-family:inherit;font-size:.93rem;background:#fff;color:var(--ink);transition:.2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--orange);box-shadow:0 0 0 4px rgba(255,138,0,.2)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.summary{background:var(--black);color:#fff;border-radius:16px;padding:18px;margin:6px 0 16px}
+.summary div{display:flex;justify-content:space-between;font-size:.9rem;padding:3px 0}
+.summary .tot{border-top:1px dashed #6b5b4b;margin-top:8px;padding-top:10px;font-size:1.2rem;font-weight:700;color:var(--yellow)}
+.hint{font-size:.78rem;color:var(--muted);margin-top:4px}
+.pay-box{text-align:center}
+.pay-empty{padding:40px 10px;color:var(--muted)}
+.pay-empty .big{font-size:3.4rem}
+.qris-card{background:var(--black);border-radius:26px;padding:20px;color:#fff;max-width:340px;margin:0 auto}
+.qris-card .qh{font-family:'Fredoka';font-size:1.3rem;color:var(--yellow);margin-bottom:2px}
+.qris-card small{color:#d9c9b4}
+.qr-frame{background:#fff;border-radius:20px;padding:14px;margin:14px auto;width:fit-content;border:5px solid var(--orange);box-shadow:0 0 0 6px var(--yellow);position:relative}
+.qr-crop{--w:260px;--s:calc(var(--w)/638);width:var(--w);height:calc(645*var(--s));background:url('assets/qris.png') no-repeat;background-size:calc(1129*var(--s)) calc(1600*var(--s));background-position:calc(-255*var(--s)) calc(-595*var(--s));image-rendering:crisp-edges}
+.qr-pay-total{background:var(--orange);color:var(--black);font-weight:700;border-radius:12px;padding:8px;margin-bottom:10px}
+.logos{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.logos span{background:#fff;color:var(--black);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:99px}
+.steps{text-align:left;margin:16px 0;font-size:.85rem;color:var(--ink)}
+.steps li{margin-left:20px;margin-bottom:4px}
+.template-preview{background:#fff;border:2px dashed var(--orange);border-radius:14px;padding:14px;white-space:pre-wrap;font-family:ui-monospace,Menlo,monospace;font-size:.78rem;text-align:left;margin-bottom:14px;max-height:230px;overflow:auto;color:var(--ink)}
+
+/* MEMBER */
+#member{background:linear-gradient(135deg,var(--black),#3a2412);color:#fff}
+#member .sec-title h2{color:var(--yellow)}#member .sec-title p{color:#e9dccb}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.tier{background:#fff;color:var(--ink);border-radius:var(--radius);padding:28px 24px;text-align:center;position:relative;transition:.25s}
+.tier:hover{transform:translateY(-8px)}
+.tier .medal{font-size:3rem}
+.tier h3{font-size:1.5rem;color:var(--black)}
+.tier .need{display:inline-block;background:var(--black);color:var(--yellow);border-radius:99px;font-size:.78rem;padding:4px 14px;margin:6px 0 12px;font-weight:600}
+.tier ul{list-style:none;text-align:left;font-size:.88rem}
+.tier li{padding:4px 0}.tier li::before{content:"✅ "}
+.tier.silver{border-top:8px solid #A9B4C0}.tier.gold{border-top:8px solid var(--yellow)}.tier.plat{border-top:8px solid #7FD6E8;box-shadow:0 0 0 4px var(--yellow)}
+.tier .best{position:absolute;top:-14px;right:16px;background:var(--orange);color:var(--black);font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:99px}
+.member-cta{text-align:center;margin-top:34px}
+
+/* FAQ */
+#faq{background:var(--white)}
+.faq{max-width:820px;margin:auto}
+.faq details{background:var(--cream);border-radius:16px;margin-bottom:12px;padding:0 20px;border:2px solid var(--cream2)}
+.faq summary{cursor:pointer;padding:16px 0;font-weight:600;color:var(--black);list-style:none;display:flex;justify-content:space-between;gap:10px}
+.faq summary::after{content:"＋";color:var(--orange-d);font-weight:700}
+.faq details[open] summary::after{content:"－"}
+.faq details p{padding:0 0 16px;color:var(--muted);font-size:.92rem}
+
+/* REVIEW */
+.review-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:28px;align-items:start}
+.reviews{display:grid;gap:14px}
+.rev{background:#fff;border-radius:18px;padding:18px 20px;box-shadow:var(--shadow);border-left:6px solid var(--orange)}
+.rev .st{color:var(--orange);letter-spacing:2px}
+.rev b{color:var(--black)}
+.rev small{color:var(--muted)}
+.empty-rev{background:#fff;border:2px dashed var(--orange);border-radius:18px;padding:34px;text-align:center;color:var(--muted)}
+.stars{display:flex;gap:4px;flex-direction:row-reverse;justify-content:flex-end}
+.stars input{display:none}
+.stars label{font-size:1.8rem;cursor:pointer;color:#d8c7ae;transition:.15s}
+.stars input:checked~label,.stars label:hover,.stars label:hover~label{color:var(--orange)}
+
+/* CONTACT */
+#contact{background:var(--cream2)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.cbox{background:#fff;border-radius:var(--radius);padding:26px;text-align:center;box-shadow:var(--shadow)}
+.cbox .ci{font-size:2.3rem}
+.cbox h3{color:var(--black);margin:6px 0}
+.cbox p{color:var(--muted);font-size:.9rem;margin-bottom:12px}
+.secure{margin-top:34px;background:var(--black);color:#fff;border-radius:var(--radius);padding:26px 30px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}
+.secure .lock{font-size:3rem}
+.secure h3{color:var(--yellow);margin-bottom:4px}
+.secure p{color:#eadfce;font-size:.92rem}
+
+footer{background:var(--black);color:#d9c9b4;padding:34px 0 90px;text-align:center;font-size:.88rem}
+footer b{color:var(--yellow)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(26,20,16,.75);display:none;place-items:center;z-index:250;padding:16px}
+.modal.show{display:grid}
+.mbox{background:#fff;border-radius:26px;padding:30px;width:min(440px,100%);position:relative;max-height:92vh;overflow:auto}
+.mbox h3{font-size:1.6rem;color:var(--black)}
+.mbox .close{position:absolute;right:16px;top:12px;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--black)}
+.tabs{display:flex;gap:6px;background:var(--cream);padding:5px;border-radius:99px;margin:14px 0 18px}
+.tabs button{flex:1;border:0;padding:9px;border-radius:99px;font-family:inherit;font-weight:600;cursor:pointer;background:none;color:var(--black)}
+.tabs button.on{background:var(--black);color:var(--yellow)}
+.acc{background:var(--black);color:#fff;border-radius:20px;padding:20px;text-align:center}
+.acc .lvl{font-family:'Fredoka';font-size:1.6rem;color:var(--yellow)}
+.bar{height:12px;background:#4a3a2c;border-radius:99px;overflow:hidden;margin:12px 0 6px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--orange),var(--yellow));width:0;transition:width .6s}
+.acc small{color:#d9c9b4}
+.toast{position:fixed;left:50%;top:84px;transform:translateX(-50%) translateY(-30px);background:var(--black);color:var(--yellow);padding:12px 22px;border-radius:99px;font-weight:600;z-index:400;opacity:0;pointer-events:none;transition:.35s;box-shadow:var(--shadow);max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* GUIDE CAT */
+#guide{position:fixed;bottom:14px;left:20px;z-index:200;display:flex;flex-direction:column;align-items:flex-start;gap:8px;transition:left 1.6s cubic-bezier(.45,.05,.3,1);width:max-content;max-width:calc(100vw - 20px)}
+#guide .gbubble{background:#fff;color:var(--black);border:3px solid var(--black);border-radius:18px 18px 18px 4px;padding:10px 14px;font-size:.84rem;font-weight:500;width:260px;max-width:70vw;box-shadow:var(--shadow);position:relative}
+#guide .gbubble b{color:var(--orange-d)}
+#guide .gbubble .gx{position:absolute;top:2px;right:8px;background:none;border:0;font-size:1rem;cursor:pointer;color:var(--muted)}
+#guide .gbtns{display:flex;gap:6px;margin-top:8px}
+#guide .gbtns button{font-family:inherit;font-size:.74rem;font-weight:600;border:0;border-radius:99px;padding:5px 12px;cursor:pointer;background:var(--black);color:var(--yellow)}
+#guide .gbtns button.alt{background:var(--orange);color:var(--black)}
+#guide .gcat{width:74px;height:74px;border-radius:50%;border:4px solid var(--black);background:#fff;box-shadow:0 0 0 3px var(--yellow),var(--shadow);cursor:pointer;object-fit:cover}
+#guide.walking .gcat{animation:walk .35s infinite alternate}
+#guide:not(.walking) .gcat{animation:idle 2.4s ease-in-out infinite}
+@keyframes walk{from{transform:translateY(0) rotate(-8deg)}to{transform:translateY(-12px) rotate(8deg)}}
+@keyframes idle{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+#guide.flip .gcat{transform:scaleX(-1)}
+#guide.hidebubble .gbubble{display:none}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero,.about-grid,.order-grid,.review-grid{grid-template-columns:1fr}
+  .calc{grid-template-columns:1fr}
+  .mascot-wrap{max-width:520px;margin:auto}
+  .burger{display:block}
+  nav{position:absolute;top:70px;left:0;right:0;background:var(--black);display:none;padding:10px 4%}
+  nav.open{display:block}
+  nav ul{flex-direction:column}
+  .secure{grid-template-columns:1fr;text-align:center}
+}
+@media(max-width:560px){.row2{grid-template-columns:1fr}.values{grid-template-columns:1fr}section{padding:60px 0}.chip.c1{right:0}.chip.c2{left:0}#guide .gbubble{width:210px}}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast"></div>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="brand"><img src="assets/logo.png" alt="Logo PawLulus"><span>Paw<b>Lulus</b></span></a>
+    <nav id="nav">
+      <ul>
+        <li><a class="link" href="#home">Home</a></li>
+        <li><a class="link" href="#about">About</a></li>
+        <li><a class="link" href="#services">Layanan</a></li>
+        <li><a class="link" href="#komis">Komis</a></li>
+        <li><a class="link" href="#order">Pesan</a></li>
+        <li><a class="link" href="#member">Member</a></li>
+        <li><a class="link" href="#faq">FAQ</a></li>
+        <li><a class="link" href="#review">Review</a></li>
+        <li><a class="link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn btn-primary btn-sm" id="authBtn">Login / Daftar</button>
+      <button class="burger" id="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- HOME -->
+<section id="home" data-guide="home">
+  <div class="container hero">
+    <div>
+      <span class="badge">🐾 Jasa Tugas Kuliah & Komis Terpercaya</span>
+      <h1>Tugas Beres, <em>Lulus</em> Lebih Tenang!</h1>
+      <p>PawLulus bantu kamu menyelesaikan makalah, essai, PPT, poster, sampai komis (commission art) dengan hasil rapi, tepat waktu, dan harga bersahabat.</p>
+      <div class="hero-cta">
+        <a href="#order" class="btn btn-dark">🛒 Pesan Sekarang</a>
+        <a href="#services" class="btn btn-ghost">Lihat Layanan</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>Rp10.000</b><small>Makalah/essai per lembar</small></div>
+        <div><b>Rp12.000</b><small>PPT per slide</small></div>
+        <div><b>100%</b><small>Data pelanggan terjaga</small></div>
+      </div>
+    </div>
+    <div class="mascot-wrap">
+      <div class="welcome-bubble"><span class="wave">👋</span> Halo! Selamat datang di PawLulus, meow~</div>
+      <img class="mascot" src="assets/maskot.png" alt="Maskot kucing orange PawLulus menyambut pengunjung">
+      <span class="chip c1">📚 Makalah & Essai</span>
+      <span class="chip c2">🎨 Komis Lucu</span>
+      <span class="chip c3">📊 PPT & Poster</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" data-guide="about">
+  <div class="container about-grid">
+    <div class="about-img"><img src="assets/logo.png" alt="Logo PawLulus"><h3 style="font-family:Fredoka;margin-top:14px">Paw<span style="color:var(--orange)">Lulus</span></h3><p style="color:var(--muted);font-size:.9rem">Teman setia menuju kelulusan</p></div>
+    <div class="about-text">
+      <div class="sec-title" style="text-align:left;margin-bottom:14px"><span class="tag">TENTANG KAMI</span></div>
+      <h3>Kenalan dulu sama PawLulus 🐱</h3>
+      <p>PawLulus lahir dari pengalaman nyata seorang mahasiswa yang paham betul rasanya dikejar tenggat. Kami membantu pelajar dan mahasiswa menyelesaikan tugas tertulis dan visual dengan rapi, serta menerima komis karakter yang manis.</p>
+      <p>Setiap pesanan dikerjakan dengan komunikasi jelas lewat WhatsApp, harga transparan, dan estimasi tenggat yang disepakati bersama.</p>
+      <div class="values">
+        <div><b>⏰ Tepat Waktu</b>Tenggat disepakati di awal</div>
+        <div><b>💬 Komunikatif</b>Update langsung via WhatsApp</div>
+        <div><b>💰 Harga Jelas</b>Tanpa biaya tersembunyi</div>
+        <div><b>🔒 Privasi Aman</b>Data tidak disebar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" data-guide="services" style="background:var(--cream)">
+  <div class="container">
+    <div class="sec-title"><span class="tag">PRODUCT / SERVICE</span><h2>Layanan PawLulus</h2><p>Pilih layanan yang kamu butuhkan. Harga bisa dihitung langsung di kalkulator bawah.</p></div>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">📝</div><h3>Makalah & Essai</h3>
+        <p>Penulisan makalah dan essai dengan struktur rapi, bahasa baku, dan sesuai topik yang kamu minta.</p>
+        <div class="price">Rp10.000 <small>/ lembar</small></div>
+        <ul><li>Struktur sesuai kebutuhan</li><li>Format rapi</li><li>Revisi ringan</li></ul>
+        <a href="#order" class="btn btn-primary" data-pick="Makalah / Essai">Pesan Makalah/Essai</a>
+      </div>
+      <div class="card">
+        <div class="ico">📊</div><h3>Pembuatan PPT</h3>
+        <p>Slide presentasi bersih dan menarik, tata letak profesional, siap dipresentasikan.</p>
+        <div class="price">Rp12.000 <small>/ slide</small></div>
+        <ul><li>Desain konsisten</li><li>Isi ringkas & jelas</li><li>Revisi ringan</li></ul>
+        <a href="#order" class="btn btn-primary" data-pick="PPT">Pesan PPT</a>
+      </div>
+      <div class="card">
+        <div class="ico">🖼️</div><h3>Poster</h3>
+        <p>Poster untuk tugas, acara, atau promosi. Harga mengikuti tingkat kerumitan dan keinginan kamu.</p>
+        <div class="price" style="font-size:1.25rem">Sesuai Kerumitan</div>
+        <ul><li>Konsep sesuai keinginan</li><li>Diskusi via WhatsApp</li><li>Harga disepakati bersama</li></ul>
+        <a href="#order" class="btn btn-primary" data-pick="Poster">Pesan Poster</a>
+      </div>
+      <div class="card dark">
+        <div class="ico">🎨</div><h3>Komis (Commission Art)</h3>
+        <p>Gambar karakter chibi dari fotomu. Detail dan harga menyesuaikan kerumitan yang kamu inginkan.</p>
+        <div class="price" style="font-size:1.25rem">Sesuai Detail</div>
+        <ul><li>Dari foto/gambar kirimanmu</li><li>Diskusi langsung ke WA</li><li>Hasil lucu & personal</li></ul>
+        <a href="#komis" class="btn btn-primary">Lihat Hasil Komis</a>
+      </div>
+    </div>
+    <div class="calc">
+      <h3>🧮 Kalkulator Harga Cepat</h3>
+      <div><label>Layanan</label><select id="cSvc"><option value="10000">Makalah / Essai (per lembar)</option><option value="12000">PPT (per slide)</option></select></div>
+      <div><label>Jumlah</label><input type="number" id="cQty" min="1" value="5"></div>
+      <div><label>Estimasi Total</label><div class="res" id="cRes">Rp50.000</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- KOMIS -->
+<section id="komis" data-guide="komis">
+  <div class="container">
+    <div class="sec-title"><span class="tag">GALERI KOMIS</span><h2>Hasil Karya Komis PawLulus</h2><p>Lihat contoh hasil komis kami. Kirim fotomu, dan kami ubah jadi karakter chibi yang menggemaskan!</p></div>
+    <div class="gallery">
+      <div class="work" data-zoom="assets/komis1.png"><img src="assets/komis1.png" alt="Contoh komis chibi berhijab membawa kopi dan kue" loading="lazy"><div>☕ Komis Karakter Solo</div></div>
+      <div class="work" data-zoom="assets/komis2.png"><img src="assets/komis2.png" alt="Contoh komis chibi wisuda berdua dengan buket" loading="lazy"><div>🎓 Komis Wisuda Couple</div></div>
+    </div>
+    <div class="komis-cta">
+      <h3>Mau dibuatkan komis versi kamu?</h3>
+      <p>Kamu akan diarahkan langsung ke WhatsApp untuk mengirim foto/gambar referensi dan berdiskusi detail & harga dengan kami.</p>
+      <button class="btn btn-wa" id="komisWA">💬 Diskusi Komis via WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section id="order" data-guide="order">
+  <div class="container">
+    <div class="sec-title"><span class="tag">RESERVATION / ORDER</span><h2>Form Pemesanan</h2><p>Isi detail pesanan, lalu QRIS pembayaran akan muncul. Setelah bayar, kirim bukti lewat template WhatsApp otomatis.</p></div>
+    <div class="order-grid">
+      <form class="panel" id="orderForm" autocomplete="off">
+        <h3>📋 Detail Pesanan</h3>
+        <div class="row2">
+          <div class="field"><label>Nama Lengkap *</label><input id="oName" required placeholder="Nama kamu"></div>
+          <div class="field"><label>No. WhatsApp *</label><input id="oWa" required inputmode="tel" placeholder="08xxxxxxxxxx"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Layanan *</label>
+            <select id="oSvc" required>
+              <option value="Makalah / Essai">Makalah / Essai (Rp10.000/lembar)</option>
+              <option value="PPT">PPT (Rp12.000/slide)</option>
+              <option value="Poster">Poster (harga sesuai kerumitan)</option>
+            </select></div>
+          <div class="field"><label id="qtyLabel">Jumlah Lembar *</label><input type="number" id="oQty" min="1" value="5" required></div>
+        </div>
+        <div class="field"><label>Detail Pesanan *</label><textarea id="oDetail" rows="4" required placeholder="Contoh: Makalah Manajemen, topik 'Kepemimpinan', format APA, ada daftar pustaka"></textarea></div>
+        <div class="row2">
+          <div class="field"><label>Tenggat *</label><input type="date" id="oDue" required></div>
+          <div class="field"><label>Catatan Tambahan</label><input id="oNote" placeholder="Opsional"></div>
+        </div>
+        <div class="summary">
+          <div><span>Layanan</span><span id="sSvc">-</span></div>
+          <div><span>Harga satuan</span><span id="sUnit">-</span></div>
+          <div id="sDiscRow" style="display:none;color:var(--yellow)"><span id="sDiscLbl">Diskon member</span><span id="sDisc">-</span></div>
+          <div class="tot"><span>Total</span><span id="sTot">-</span></div>
+        </div>
+        <p class="hint" id="posterHint" style="display:none;margin-bottom:10px">ℹ️ Harga poster ditentukan setelah diskusi. Total akan dikonfirmasi lewat WhatsApp.</p>
+        <button class="btn btn-primary" style="width:100%" type="submit">💳 Lanjut ke Pembayaran</button>
+      </form>
+
+      <div class="panel pay-box" id="payPanel">
+        <h3>💳 Pembayaran</h3>
+        <div class="pay-empty" id="payEmpty"><div class="big">😺</div><p>Isi form pemesanan dulu ya.<br>Kode QRIS akan muncul di sini setelah detail pesanan lengkap.</p></div>
+        <div id="payReady" style="display:none">
+          <div class="qris-card">
+            <div class="qh">Scan untuk Bayar</div>
+            <small>QRIS · No. Pesanan <b id="payNo"></b></small>
+            <div class="qr-frame"><div class="qr-crop" role="img" aria-label="Kode QRIS PawLulus"></div></div>
+            <div class="qr-pay-total" id="payTotal"></div>
+            <small>Bisa dibayar dari semua bank & e-wallet</small>
+            <div class="logos"><span>BRI</span><span>BCA</span><span>Mandiri</span><span>BNI</span><span>GoPay</span><span>ShopeePay</span><span>OVO</span><span>DANA</span></div>
+          </div>
+          <ol class="steps">
+            <li>Buka aplikasi bank / e-wallet, pilih <b>Scan QRIS</b>.</li>
+            <li>Masukkan nominal sesuai total pesanan.</li>
+            <li>Simpan <b>screenshot bukti pembayaran</b>.</li>
+            <li>Klik tombol di bawah, lalu lampirkan bukti di WhatsApp.</li>
+          </ol>
+          <div class="template-preview" id="tplPreview"></div>
+          <button class="btn btn-wa" style="width:100%" id="sendProof">📲 Kirim Bukti Pembayaran via WhatsApp</button>
+          <p class="hint" style="margin-top:8px">Pesan otomatis terisi, kamu tinggal melampirkan foto bukti bayar.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBER -->
+<section id="member" data-guide="member">
+  <div class="container">
+    <div class="sec-title"><span class="tag" style="background:var(--yellow);color:var(--black)">PROMO & MEMBERSHIP</span><h2>Makin Sering Order, Makin Untung! 🎁</h2><p>Daftar akun gratis. Level membership naik otomatis sesuai jumlah pesanan kamu.</p></div>
+    <div class="tiers">
+      <div class="tier silver"><div class="medal">🥈</div><h3>Silver</h3><div class="need">5 kali pesan</div><ul><li>Diskon 5% semua layanan</li><li>Prioritas antrean ringan</li><li>Badge Silver di akun</li></ul></div>
+      <div class="tier gold"><div class="medal">🥇</div><h3>Gold</h3><div class="need">10 kali pesan</div><ul><li>Diskon 10% semua layanan</li><li>1x revisi tambahan gratis</li><li>Badge Gold di akun</li></ul></div>
+      <div class="tier plat"><span class="best">TERBAIK</span><div class="medal">💎</div><h3>Platinum</h3><div class="need">lebih dari 15 kali pesan</div><ul><li>Diskon 15% semua layanan</li><li>Prioritas pengerjaan utama</li><li>Bonus mini-komis kejutan</li></ul></div>
+    </div>
+    <div class="member-cta"><button class="btn btn-primary" id="memberBtn">🐾 Daftar Sekarang, Gratis!</button></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" data-guide="faq">
+  <div class="container">
+    <div class="sec-title"><span class="tag">FAQ</span><h2>Pertanyaan yang Sering Ditanyakan</h2></div>
+    <div class="faq">
+      <details><summary>Berapa lama pengerjaan pesanan?</summary><p>Tergantung jumlah halaman/slide dan tingkat kesulitan. Tenggat disepakati bersama sebelum pengerjaan dimulai.</p></details>
+      <details><summary>Bagaimana cara membayar?</summary><p>Lewat QRIS yang muncul setelah kamu mengisi form pesanan. Semua bank dan e-wallet (BRI, BCA, Mandiri, GoPay, ShopeePay, OVO, dan lainnya) bisa digunakan.</p></details>
+      <details><summary>Setelah bayar, apa yang harus saya lakukan?</summary><p>Klik tombol “Kirim Bukti Pembayaran via WhatsApp”. Pesan berisi nama, no. pesanan, detail, tenggat, dan catatan akan terisi otomatis. Cukup lampirkan screenshot bukti bayar.</p></details>
+      <details><summary>Apakah bisa revisi?</summary><p>Bisa. Revisi ringan termasuk dalam layanan. Revisi besar akan didiskusikan lewat WhatsApp.</p></details>
+      <details><summary>Bagaimana harga poster dan komis?</summary><p>Harga menyesuaikan kerumitan dan detail yang kamu inginkan, dan disepakati lewat diskusi di WhatsApp.</p></details>
+      <details><summary>Bagaimana cara naik level Silver, Gold, Platinum?</summary><p>Silver setelah 5 kali memakai jasa, Gold setelah 10 kali, dan Platinum setelah lebih dari 15 kali. Level tampil di akunmu.</p></details>
+      <details><summary>Apakah data dan nomor saya aman?</summary><p>Ya. Data dan nomor hanya digunakan untuk memproses pesananmu, tidak dijual atau disebarkan kepada pihak lain.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEW -->
+<section id="review" data-guide="review" style="background:var(--cream)">
+  <div class="container">
+    <div class="sec-title"><span class="tag">REVIEW</span><h2>Kata Pelanggan PawLulus ⭐</h2><p>Sudah pernah order? Tulis ulasanmu untuk membantu calon pelanggan lain.</p></div>
+    <div class="review-grid">
+      <form class="panel" id="revForm">
+        <h3>✍️ Tulis Ulasan</h3>
+        <div class="field"><label>Nama</label><input id="rName" required placeholder="Nama (boleh inisial)"></div>
+        <div class="field"><label>Layanan yang dipakai</label>
+          <select id="rSvc"><option>Makalah / Essai</option><option>PPT</option><option>Poster</option><option>Komis</option></select></div>
+        <div class="field"><label>Rating</label>
+          <div class="stars" id="rStars">
+            <input type="radio" name="rate" id="s5" value="5" checked><label for="s5">★</label>
+            <input type="radio" name="rate" id="s4" value="4"><label for="s4">★</label>
+            <input type="radio" name="rate" id="s3" value="3"><label for="s3">★</label>
+            <input type="radio" name="rate" id="s2" value="2"><label for="s2">★</label>
+            <input type="radio" name="rate" id="s1" value="1"><label for="s1">★</label>
+          </div></div>
+        <div class="field"><label>Ulasan</label><textarea id="rText" rows="3" required maxlength="300" placeholder="Ceritakan pengalamanmu..."></textarea></div>
+        <button class="btn btn-primary" type="submit" style="width:100%">Kirim Ulasan</button>
+      </form>
+      <div class="reviews" id="revList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" data-guide="contact">
+  <div class="container">
+    <div class="sec-title"><span class="tag">CONTACT US</span><h2>Hubungi Kami</h2><p>Ada pertanyaan atau mau konsultasi dulu? Kami siap membantu.</p></div>
+    <div class="contact-grid">
+      <div class="cbox"><div class="ci">💬</div><h3>WhatsApp</h3><p>0859-2582-6775<br>Respon cepat untuk pesanan & diskusi komis</p><a class="btn btn-wa btn-sm" href="https://wa.me/6285925826775?text=Halo%20PawLulus%2C%20saya%20ingin%20bertanya%20%F0%9F%90%BE" target="_blank" rel="noopener">Chat Sekarang</a></div>
+      <div class="cbox"><div class="ci">🛍️</div><h3>Pesan Langsung</h3><p>Isi form pemesanan dan bayar lewat QRIS.</p><a class="btn btn-primary btn-sm" href="#order">Ke Form Pesanan</a></div>
+      <div class="cbox"><div class="ci">🎨</div><h3>Konsultasi Komis</h3><p>Kirim foto referensi & diskusi detail.</p><button class="btn btn-dark btn-sm" id="komisWA2">Diskusi Komis</button></div>
+    </div>
+    <div class="secure">
+      <div class="lock">🔒</div>
+      <div><h3>Data & Nomor Kamu Aman Bersama Kami</h3><p>Seluruh data dan nomor yang kamu berikan hanya dipakai untuk memproses pesanan, dijaga kerahasiaannya, dan tidak akan disalahgunakan atau dibagikan ke pihak lain. Kamu tidak perlu khawatir.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container"><b>PawLulus</b> · Jasa Makalah, Essai, PPT, Poster & Komis<br>© <span id="yr"></span> PawLulus. Dibuat dengan 🧡 untuk para pejuang lulus.</div>
+</footer>
+
+<!-- AUTH MODAL -->
+<div class="modal" id="authModal">
+  <div class="mbox">
+    <button class="close" id="authClose">×</button>
+    <div id="authForms">
+      <h3>Selamat Datang 🐾</h3>
+      <div class="tabs"><button class="on" data-tab="login">Login</button><button data-tab="reg">Daftar</button></div>
+      <form id="loginForm">
+        <div class="field"><label>Email</label><input type="email" id="lEmail" required></div>
+        <div class="field"><label>Password</label><input type="password" id="lPass" required></div>
+        <button class="btn btn-primary" style="width:100%">Login</button>
+      </form>
+      <form id="regForm" style="display:none">
+        <div class="field"><label>Nama</label><input id="gName" required></div>
+        <div class="field"><label>Email</label><input type="email" id="gEmail" required></div>
+        <div class="field"><label>No. WhatsApp</label><input id="gWa" inputmode="tel" required></div>
+        <div class="field"><label>Password (min. 6 karakter)</label><input type="password" id="gPass" minlength="6" required></div>
+        <button class="btn btn-primary" style="width:100%">Daftar Gratis</button>
+      </form>
+    </div>
+    <div id="accView" style="display:none">
+      <h3>Akun Saya</h3>
+      <p id="accName" style="color:var(--muted);margin-bottom:14px"></p>
+      <div class="acc">
+        <div style="font-size:2.6rem" id="accMedal">🐱</div>
+        <div class="lvl" id="accLvl"></div>
+        <div class="bar"><i id="accBar"></i></div>
+        <small id="accInfo"></small>
+        <p style="margin-top:10px;font-size:.85rem" id="accBenefit"></p>
+      </div>
+      <button class="btn btn-ghost" style="width:100%;margin-top:16px" id="logoutBtn">Keluar</button>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox"><img id="lbImg" alt="Pratinjau komis"></div>
+
+<!-- GUIDE CAT -->
+<div id="guide">
+  <div class="gbubble" id="gBubble">
+    <button class="gx" id="gClose" aria-label="Tutup">×</button>
+    <div id="gText"></div>
+    <div class="gbtns"><button class="alt" id="gNext">Lanjut ➜</button><button id="gSkip">Stop tur</button></div>
+  </div>
+  <img class="gcat" id="gCat" src="assets/logo.png" alt="Kucing pemandu PawLulus" title="Klik aku untuk tur!">
+</div>
+
+<script>
+(function(){
+const WA = '6285925826775';
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const rp = n => 'Rp' + Math.round(n).toLocaleString('id-ID');
+const store = {
+  get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+};
+const toast = m => {const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),3200)};
+$('#yr').textContent = new Date().getFullYear();
+
+/* NAV */
+$('#burger').onclick = () => $('#nav').classList.toggle('open');
+$$('#nav a').forEach(a => a.onclick = () => $('#nav').classList.remove('open'));
+const secs = $$('section[id]');
+const links = $$('nav a.link');
+function setActive(id){links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id))}
+
+/* CALCULATOR */
+function calcQuick(){ $('#cRes').textContent = rp(+$('#cSvc').value * Math.max(1,+$('#cQty').value||1)) }
+$('#cSvc').onchange = $('#cQty').oninput = calcQuick; calcQuick();
+
+/* LIGHTBOX */
+$$('.work').forEach(w => w.onclick = () => {$('#lbImg').src = w.dataset.zoom; $('#lightbox').classList.add('show')});
+$('#lightbox').onclick = () => $('#lightbox').classList.remove('show');
+
+/* KOMIS WA */
+function komisWA(){
+  const msg = `Halo PawLulus 🐾\nSaya tertarik memesan *KOMIS*.\n\n━━━━━━━━━━━━━━\n👤 Nama      : \n📝 Detail    : (karakter/gaya/jumlah orang)\n⏰ Tenggat   : \n🗒️ Catatan   : \n━━━━━━━━━━━━━━\n\nSaya akan kirim foto/gambar referensi di chat ini ya. Terima kasih! 🙏`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+$('#komisWA').onclick = $('#komisWA2').onclick = komisWA;
+
+/* MEMBERSHIP */
+const TIERS = [
+  {name:'Platinum',min:16,disc:.15,medal:'💎',benefit:'Diskon 15%, prioritas pengerjaan utama, dan bonus mini-komis kejutan.'},
+  {name:'Gold',min:10,disc:.10,medal:'🥇',benefit:'Diskon 10% dan 1x revisi tambahan gratis.'},
+  {name:'Silver',min:5,disc:.05,medal:'🥈',benefit:'Diskon 5% semua layanan dan prioritas antrean ringan.'}
+];
+const tierOf = n => TIERS.find(t => n >= t.min) || {name:'Member Baru',min:0,disc:0,medal:'🐱',benefit:'Selesaikan 5 pesanan untuk naik ke Silver!'};
+const users = () => store.get('pl_users',{});
+const session = () => store.get('pl_session',null);
+const me = () => { const s=session(); return s ? users()[s] : null };
+async function hash(p){
+  try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('pawlulus:'+p));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return btoa(p)}
+}
+function refreshAuthUI(){
+  const u = me();
+  $('#authBtn').textContent = u ? ('🐾 ' + u.name.split(' ')[0]) : 'Login / Daftar';
+  $('#authForms').style.display = u ? 'none' : 'block';
+  $('#accView').style.display = u ? 'block' : 'none';
+  if(u){
+    const n = u.orders||0, t = tierOf(n);
+    const next = n<5?5:n<10?10:n<16?16:null;
+    $('#accName').textContent = u.name + ' · ' + u.email;
+    $('#accMedal').textContent = t.medal;
+    $('#accLvl').textContent = t.name;
+    $('#accInfo').textContent = next ? `${n} pesanan · ${next-n} lagi menuju ${next===5?'Silver':next===10?'Gold':'Platinum'}` : `${n} pesanan · level tertinggi tercapai 🎉`;
+    $('#accBar').style.width = (next ? Math.min(100,n/next*100) : 100)+'%';
+    $('#accBenefit').textContent = '🎁 ' + t.benefit;
+  }
+  updateSummary();
+}
+const openAuth = () => {refreshAuthUI();$('#authModal').classList.add('show')};
+$('#authBtn').onclick = $('#memberBtn').onclick = openAuth;
+$('#authClose').onclick = () => $('#authModal').classList.remove('show');
+$('#authModal').onclick = e => {if(e.target.id==='authModal')$('#authModal').classList.remove('show')};
+$$('.tabs button').forEach(b => b.onclick = () => {
+  $$('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  $('#loginForm').style.display = b.dataset.tab==='login'?'block':'none';
+  $('#regForm').style.display = b.dataset.tab==='reg'?'block':'none';
+});
+$('#regForm').onsubmit = async e => {
+  e.preventDefault();
+  const email = $('#gEmail').value.trim().toLowerCase(), all = users();
+  if(all[email]) return toast('Email sudah terdaftar, silakan login.');
+  all[email] = {name:$('#gName').value.trim(),email,wa:$('#gWa').value.trim(),pass:await hash($('#gPass').value),orders:0};
+  store.set('pl_users',all); store.set('pl_session',email);
+  toast('Selamat datang di PawLulus! 🎉'); refreshAuthUI();
+};
+$('#loginForm').onsubmit = async e => {
+  e.preventDefault();
+  const email = $('#lEmail').value.trim().toLowerCase(), u = users()[email];
+  if(!u || u.pass !== await hash($('#lPass').value)) return toast('Email atau password salah.');
+  store.set('pl_session',email); toast('Login berhasil, halo ' + u.name.split(' ')[0] + '! 😺'); refreshAuthUI();
+  const f=$('#oName'); if(f && !f.value){f.value=u.name;$('#oWa').value=u.wa||''}
+};
+$('#logoutBtn').onclick = () => {store.set('pl_session',null);toast('Kamu sudah keluar. Sampai jumpa!');refreshAuthUI()};
+
+/* ORDER */
+const PRICE = {'Makalah / Essai':10000,'PPT':12000,'Poster':0};
+const UNIT = {'Makalah / Essai':'lembar','PPT':'slide','Poster':'desain'};
+const due = $('#oDue'); const today = new Date(); today.setDate(today.getDate()+1);
+due.min = today.toISOString().slice(0,10);
+function calcOrder(){
+  const svc = $('#oSvc').value, qty = Math.max(1,+$('#oQty').value||1), unit = PRICE[svc];
+  const t = tierOf(me()?.orders||0), sub = unit*qty, disc = me() ? sub*t.disc : 0;
+  return {svc,qty,unit,sub,disc,total:sub-disc,tier:me()?t:null};
+}
+function updateSummary(){
+  const svc = $('#oSvc').value, o = calcOrder();
+  $('#qtyLabel').textContent = svc==='PPT'?'Jumlah Slide *':svc==='Poster'?'Jumlah Poster *':'Jumlah Lembar *';
+  $('#sSvc').textContent = `${svc} × ${o.qty}`;
+  $('#posterHint').style.display = svc==='Poster'?'block':'none';
+  if(!o.unit){ $('#sUnit').textContent='Sesuai kerumitan'; $('#sTot').textContent='Dikonfirmasi via WA'; $('#sDiscRow').style.display='none'; return }
+  $('#sUnit').textContent = rp(o.unit)+' / '+UNIT[svc];
+  const show = o.disc>0; $('#sDiscRow').style.display = show?'flex':'none';
+  if(show){$('#sDiscLbl').textContent='Diskon '+o.tier.name+' ('+o.tier.disc*100+'%)';$('#sDisc').textContent='−'+rp(o.disc)}
+  $('#sTot').textContent = rp(o.total);
+}
+['#oSvc','#oQty'].forEach(s => $(s).addEventListener('input',updateSummary)); updateSummary();
+$$('[data-pick]').forEach(b => b.addEventListener('click',()=>{$('#oSvc').value=b.dataset.pick;updateSummary()}));
+
+let current = null;
+const fmtDate = d => new Date(d+'T00:00:00').toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+function orderNo(){
+  const d = new Date(), p = n => String(n).padStart(2,'0');
+  return `PL-${d.getFullYear()}${p(d.getMonth()+1)}${p(d.getDate())}-${Math.floor(1000+Math.random()*9000)}`;
+}
+function buildTemplate(o){
+  const total = o.unit ? rp(o.total) : 'Menunggu konfirmasi (harga sesuai kerumitan)';
+  const mem = o.tier ? `\n🏅 Member      : ${o.tier.name}` : '';
+  return `🐾 *BUKTI PEMBAYARAN – PAWLULUS* 🐾
+━━━━━━━━━━━━━━━━━━
+👤 *Nama*        : ${o.name}
+📱 *No. WA*      : ${o.wa}
+🧾 *No. Pesanan* : ${o.no}${mem}
+━━━━━━━━━━━━━━━━━━
+📦 *Detail Pesanan*
+• Layanan : ${o.svc}
+• Jumlah  : ${o.qty} ${UNIT[o.svc]}
+• Rincian : ${o.detail}
+💰 *Total Bayar* : ${total}
+━━━━━━━━━━━━━━━━━━
+⏰ *Tenggat*     : ${fmtDate(o.due)}
+🗒️ *Catatan*     : ${o.note || '-'}
+━━━━━━━━━━━━━━━━━━
+✅ Bukti pembayaran saya lampirkan pada pesan ini.
+Mohon segera diproses ya. Terima kasih! 🙏`;
+}
+$('#orderForm').onsubmit = e => {
+  e.preventDefault();
+  const c = calcOrder();
+  current = {...c,no:orderNo(),name:$('#oName').value.trim(),wa:$('#oWa').value.trim(),detail:$('#oDetail').value.trim(),due:$('#oDue').value,note:$('#oNote').value.trim(),counted:false};
+  $('#payNo').textContent = current.no;
+  $('#payTotal').textContent = current.unit ? 'Total: '+rp(current.total) : 'Total dikonfirmasi via WhatsApp';
+  $('#tplPreview').textContent = buildTemplate(current);
+  $('#payEmpty').style.display='none'; $('#payReady').style.display='block';
+  toast('QRIS siap! Silakan lakukan pembayaran 💳');
+  if(window.innerWidth<960) $('#payPanel').scrollIntoView({behavior:'smooth',block:'start'});
+};
+$('#sendProof').onclick = () => {
+  if(!current) return;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(buildTemplate(current))}`,'_blank');
+  const s = session();
+  if(s && !current.counted){
+    const all = users(); all[s].orders = (all[s].orders||0)+1; store.set('pl_users',all);
+    const before = tierOf(all[s].orders-1).name, after = tierOf(all[s].orders).name;
+    current.counted = true; refreshAuthUI();
+    if(before!==after) toast('🎉 Selamat! Kamu naik ke level '+after+'!');
+  } else if(!s){ toast('Tip: daftar akun agar pesananmu dihitung untuk level member 🎁') }
+};
+
+/* REVIEWS (hanya ulasan asli dari pengunjung, tersimpan di perangkat) */
+function renderReviews(){
+  const list = store.get('pl_reviews',[]), box = $('#revList');
+  if(!list.length){box.innerHTML='<div class="empty-rev"><div style="font-size:3rem">🐱</div><p>Belum ada ulasan.<br>Jadilah yang pertama memberi ulasan!</p></div>';return}
+  box.innerHTML='';
+  list.slice().reverse().forEach(r=>{
+    const d=document.createElement('div');d.className='rev';
+    const st=document.createElement('div');st.className='st';st.textContent='★'.repeat(r.rate)+'☆'.repeat(5-r.rate);
+    const p=document.createElement('p');p.textContent=r.text;
+    const n=document.createElement('b');n.textContent=r.name;
+    const s=document.createElement('small');s.textContent=' · '+r.svc;
+    d.append(st,p,n,s);box.append(d);
+  });
+}
+$('#revForm').onsubmit = e => {
+  e.preventDefault();
+  const list = store.get('pl_reviews',[]);
+  list.push({name:$('#rName').value.trim(),svc:$('#rSvc').value,rate:+document.querySelector('input[name=rate]:checked').value,text:$('#rText').value.trim()});
+  store.set('pl_reviews',list); e.target.reset(); renderReviews(); toast('Terima kasih atas ulasanmu! 🧡');
+};
+renderReviews();
+
+/* GUIDE CAT */
+const guide = $('#guide'), gText = $('#gText');
+const MSG = {
+  home:'Meow! Aku <b>Paw</b>, pemandu kamu di PawLulus 🐾 Yuk kuajak keliling web ini!',
+  about:'Ini bagian <b>About</b>. Kenalan dulu sama PawLulus dan komitmen kami ya 🧡',
+  services:'Di sini ada semua <b>layanan</b>: makalah/essai Rp10.000/lembar, PPT Rp12.000/slide, plus poster & komis. Coba kalkulator harganya!',
+  komis:'Lihat <b>hasil komis</b> kami! Kalau mau dibuatkan, klik tombol WhatsApp untuk kirim fotomu 🎨',
+  order:'Mau pesan? Isi <b>form</b>, lalu <b>QRIS</b> muncul. Bayar, lalu kirim bukti lewat template WA otomatis 📲',
+  member:'Order terus, naik level! <b>Silver</b> 5x, <b>Gold</b> 10x, <b>Platinum</b> lebih dari 15x. Daftar gratis ya 🎁',
+  faq:'Bingung? Cek <b>FAQ</b> dulu, siapa tahu jawabannya ada di sini ❓',
+  review:'Ini <b>review</b> dari pelanggan. Sudah order? Tulis ulasanmu juga ya ⭐',
+  contact:'Terakhir, <b>kontak</b> kami. Tenang, data & nomormu terjaga aman 🔒 Sampai jumpa, meow!'
+};
+const ORDER = Object.keys(MSG);
+let tourOn = true, tourIdx = 0, lastId = 'home', walkTimer;
+function moveGuideTo(id){
+  const sec = document.getElementById(id); if(!sec) return;
+  const idx = ORDER.indexOf(id);
+  const span = Math.max(0, window.innerWidth - guide.offsetWidth - 40);
+  // pindah kiri-kanan bergantian seolah berjalan antar bagian
+  const target = 20 + (idx % 2 === 0 ? 0 : span * (0.35 + (idx % 4) * 0.12));
+  const cur = parseFloat(guide.style.left||20);
+  guide.classList.toggle('flip', target < cur);
+  guide.classList.add('walking'); guide.style.left = Math.min(target, span) + 'px';
+  clearTimeout(walkTimer); walkTimer = setTimeout(()=>guide.classList.remove('walking'),1650);
+  gText.innerHTML = MSG[id]; guide.classList.remove('hidebubble');
+  lastId = id;
+}
+function goTo(i){
+  tourIdx = (i+ORDER.length)%ORDER.length;
+  const id = ORDER[tourIdx];
+  document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+}
+$('#gNext').onclick = () => goTo(tourIdx+1);
+$('#gSkip').onclick = () => {tourOn=false;gText.innerHTML='Oke, tur dihentikan. Klik aku kalau mau dipandu lagi! 😺';setTimeout(()=>guide.classList.add('hidebubble'),2200)};
+$('#gClose').onclick = () => guide.classList.add('hidebubble');
+$('#gCat').onclick = () => {tourOn=true;guide.classList.remove('hidebubble');moveGuideTo(lastId)};
+const io = new IntersectionObserver(es => {
+  es.forEach(en => { if(en.isIntersecting){
+    const id = en.target.id; setActive(id);
+    tourIdx = ORDER.indexOf(id);
+    if(tourOn && id!==lastId) moveGuideTo(id);
+  }});
+},{threshold:.45});
+ORDER.forEach(id => io.observe(document.getElementById(id)));
+guide.style.left='20px';
+setTimeout(()=>{gText.innerHTML=MSG.home},300);
+
+refreshAuthUI();
+})();
+</script>
+</body>
+</html>
